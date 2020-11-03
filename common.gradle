@@ -1,0 +1,44 @@
+apply from: "${buildscript.sourceFile.parent}/constants.gradle"
+apply plugin: "kotlin-android"
+apply plugin: "kotlin-kapt"
+apply plugin: "dagger.hilt.android.plugin"
+
+android {
+    compileSdkVersion versions.sdk
+    buildToolsVersion versions.buildTools
+
+    defaultConfig {
+        minSdkVersion versions.minSdk
+        targetSdkVersion versions.sdk
+        versionCode versions.versionCode
+        versionName versions.versionName
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+}
+
+dependencies {
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$versions.kotlin"
+
+    implementation "androidx.appcompat:appcompat:1.2.0"
+    implementation 'com.google.android.material:material:1.2.1'
+    implementation "com.google.dagger:hilt-android:$versions.hilt"
+    implementation"androidx.hilt:hilt-lifecycle-viewmodel:$versions.hiltViewModel"
+    kapt "com.google.dagger:hilt-android-compiler:$versions.hilt"
+    kapt "androidx.hilt:hilt-compiler:$versions.hiltViewModel"
+}

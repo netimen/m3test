@@ -1,0 +1,14 @@
+ext.versions = [
+        versionCode: 1,
+        versionName: "1.0",
+        sdk: 30,
+        minSdk: 21,
+        buildTools: "30.0.2",
+
+        kotlin: "1.4.10",
+        lifecycle: "2.2.0",
+        hilt: "2.28-alpha",
+        hiltViewModel: "1.0.0-alpha02",
+
+        moshi: "1.11.0"
+]

@@ -1,0 +1,3 @@
+include ':itemslib'
+include ':app'
+rootProject.name = "M3 Test"

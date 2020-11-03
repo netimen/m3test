@@ -1,0 +1,10 @@
+apply plugin: 'com.android.application'
+apply from: "../common.gradle"
+
+dependencies {
+    implementation project(":itemslib")
+
+    implementation "com.squareup.moshi:moshi:$versions.moshi"
+    implementation "com.squareup.moshi:moshi-adapters:$versions.moshi"
+    kapt "com.squareup.moshi:moshi-kotlin-codegen:$versions.moshi"
+}
