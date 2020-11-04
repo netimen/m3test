@@ -4,7 +4,4 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:background="?android:attr/selectableItemBackground"
-    android:clickable="true"
-    android:focusable="true"
-    tools:context="ru.netimen.itemslib.ui.list.ItemsActivity"/>
+    tools:context="ru.netimen.itemslib.ui.item.ItemActivity"/>

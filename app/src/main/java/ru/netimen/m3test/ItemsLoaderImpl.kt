@@ -2,7 +2,7 @@ package ru.netimen.m3test
 
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.adapters.Rfc3339DateJsonAdapter
-import ru.netimen.itemslib.data.Item
+import ru.netimen.itemslib.data.GenericItem
 import ru.netimen.itemslib.data.ItemsLoader
 import ru.netimen.m3test.items.ItemsGenerator
 import java.util.Date
@@ -15,11 +15,12 @@ class ItemsLoaderImpl @Inject constructor(private val itemsGenerator: ItemsGener
             .build()
     }
 
-    override fun loadItems(): List<Item> {
+    override fun loadItems(): List<GenericItem> {
         return generateSequence { itemsGenerator.item() }
-            .map { moshi.adapter(it.javaClass).toJsonValue(it) }
-            .map {
-                @Suppress("UNCHECKED_CAST") Item(it as Map<String, Any>)
+            .map { item ->
+                moshi.adapter(item.javaClass).toJsonValue(item).let { values ->
+                    @Suppress("UNCHECKED_CAST") GenericItem(item.title, values as Map<String, Any>)
+                }
             }
             .take((0..MAX_COUNT).random())
             .toList()

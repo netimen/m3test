@@ -1,7 +1,12 @@
 package ru.netimen.itemslib.data
 
-typealias Items = List<Item>
+import java.io.Serializable
 
-data class Item(private val fields: Map<String, Any>) {
-    val shortDescription = fields.toString()
+interface Item {
+    val title: String
 }
+
+typealias Field = Map.Entry<String, Any>
+typealias Fields = Map<String, Any>
+
+data class GenericItem(override val title: String, val fields: Fields) : Item, Serializable

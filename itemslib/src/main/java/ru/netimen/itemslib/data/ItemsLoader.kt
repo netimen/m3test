@@ -4,5 +4,5 @@ import androidx.annotation.WorkerThread
 
 @WorkerThread
 interface ItemsLoader {
-    fun loadItems(): List<Item>
+    fun loadItems(): List<GenericItem>
 }

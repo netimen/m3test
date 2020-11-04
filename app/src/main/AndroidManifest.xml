@@ -11,11 +11,19 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.M3Test"
         tools:ignore="AllowBackup">
-        <activity android:name="ru.netimen.itemslib.ui.ItemsActivity">
+        <activity android:name="ru.netimen.itemslib.ui.list.ItemsActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name="ru.netimen.itemslib.ui.item.ItemActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
     </application>
